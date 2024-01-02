@@ -11,11 +11,10 @@
   programs.command-not-found.enable = lib.mkDefault false;
 
   services.openssh.enable = true;
-
-  services.zerotierone = {
-    enable = true;
-    joinNetworks = [ ];
-  };
+  # services.zerotierone = {
+  #   enable = true;
+  #   joinNetworks = [ ];
+  # };
   programs.ssh = {
     extraConfig = ''
       Host *
@@ -23,7 +22,6 @@
           HostkeyAlgorithms +ssh-rsa
     '';
   };
-
   services.tailscale.enable = true;
 
   virtualisation.docker.enable = true;
