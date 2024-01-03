@@ -8,7 +8,7 @@
 
   outputs = inputs@{ self, nixpkgs, flake-utils, ... }: let
     makeMyConfigurations = conflist: builtins.foldl' (a: b: a // b) { } (builtins.map
-      ({ host, system, extraModules? [ ], extraLocalModules? [ ], enableUser? false }: {
+      ({ host, system, extraModules? [ ], apps? [ ], enableUser? false }: {
         ${host} = let
           basicModules = [ ./hosts/${host}.nix
                            ./basics.nix
@@ -18,7 +18,7 @@
           specialArgs = { inherit inputs system host; };
           modules = basicModules
                     ++ extraModules
-                    ++ builtins.map (name: ./local-modules/${name}.nix) extraLocalModules
+                    ++ builtins.map (name: ./apps/${name}.nix) apps
                     ++ (if enableUser then [ ./user.nix ] else [ ]);
         };
       }) conflist);
@@ -28,7 +28,7 @@
         host = "ctvp";
         system = "x86_64-linux";
         enableUser = true;
-        extraLocalModules = [ ];
+        apps = [ "matrix" ];
       }
     ];
   };
