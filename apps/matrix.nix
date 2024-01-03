@@ -1,11 +1,10 @@
 { pkgs, lib, config, ... }:
 let
   domain = "oau.app";
-  fqdn = "matrix.${domain}";
-  baseUrl = "https://${fqdn}";
+  baseUrl = "https://${domain}";
   admin_email = "serviceadmin@${domain}";
   clientConfig."m.homeserver".base_url = baseUrl;
-  serverConfig."m.server" = "${fqdn}:443";
+  serverConfig."m.server" = "${domain}:443";
   mkWellKnown = data: ''
     default_type application/json;
     add_header Access-Control-Allow-Origin *;
@@ -26,15 +25,13 @@ in {
   services.caddy = {
     enable = true;
     extraConfig = ''
-      ${fqdn} {
-        reverse_proxy /* localhost:8008
-      }
-
       ${domain} {
+        reverse_proxy /_matrix/* localhost:8008
+        reverse_proxy /_synapse/client/* localhost:8008
         header /.well-known/matrix/* Content-Type application/json
         header /.well-known/matrix/* Access-Control-Allow-Origin *
         respond /.well-known/matrix/server `{"m.server": "${domain}:443"}`
-        respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"${fqdn}"}}`
+        respond /.well-known/matrix/client `{"m.homeserver":{"base_url":"${domain}"}}`
       }
     '';
   };
@@ -43,6 +40,7 @@ in {
     enable = true;
     settings = {
       server_name = domain;
+      serve_server_wellknown = true;
       public_baseurl = baseUrl;
       registration_shared_secret_path = "/var/lib/matrix-synapse/secrets"; # TODO improve
       listeners = lib.singleton {
