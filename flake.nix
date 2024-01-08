@@ -28,7 +28,7 @@
         host = "ctvp";
         system = "x86_64-linux";
         enableUser = true;
-        apps = [ "matrix" ];
+        apps = [ "matrix" "mautrix-bridges" ];
       }
     ];
   };
