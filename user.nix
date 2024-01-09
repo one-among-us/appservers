@@ -18,7 +18,7 @@
       extraGroups = [ "wheel" "docker" ];
       homeMode = "755";
       openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQruWFx8FAMFKOVzurMgjhaDOjmVJTN6Fz116B+lvVF kuniklo@Pod042A"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPbKzssJYRhfIGqipJd96agUmLs6SkCcIMzGk0dU3B7b openpgp:0x12F68067"
       ];
     };
   };
