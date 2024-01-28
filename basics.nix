@@ -25,6 +25,7 @@
   services.tailscale.enable = true;
 
   virtualisation.docker.enable = true;
+  virtualisation.podman.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nix = {
