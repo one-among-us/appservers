@@ -12,22 +12,10 @@ in
         }
       }
 
-      http://live.oau.app {
-        redir https://example.com{url}
-      }
-      https://live.oau.app {
+      live.oau.app {
         tls info@oneamongus.ca
         root * ${live-website}
-        header / {
-          Content-Security-Policy = "upgrade-insecure-requests; default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self'; object-src 'self'; worker-src 'self'; manifest-src 'self';"
-          Strict-Transport-Security = "max-age=63072000; includeSubDomains; preload"
-          X-Xss-Protection = "1; mode=block"
-          X-Frame-Options = "DENY"
-          X-Content-Type-Options = "nosniff"
-          Referrer-Policy = "strict-origin-when-cross-origin"
-          Permissions-Policy = "fullscreen=(self)"
-          cache-control = "max-age=0,no-cache,no-store,must-revalidate"
-        }
+        file_server
         handle_errors {
           @404 {
             expression {http.error.status_code}==404
