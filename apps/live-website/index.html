@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title> One Among Us 331 晚会 </title>
+    <style>
+      p, h1, h2 {
+          text-align: center;
+      }
+    </style>
+    <script type="text/javascript">
+      function connected() {
+          document.getElementById("redirect").innerHTML = "<p> 检测到您在墙外，自动为您跳转 Twitch 直播 </p>";
+          setTimeout(() => {
+              window.location = "https://twitch.tv/oneamong_us";
+          }, 1000);
+      }
+      function tryConnection() {
+          document.getElementById("detect").src = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+      }
+    </script>
+  </head>
+  <body>
+    <h1>One Among Us 331 晚会线上直播</h1>
+    <noscript> 测试网络联通性失败！请手动点击下列链接</noscript>
+    <h2><a href="https://twitch.tv/oneamong_us">Twitch 直播</a></h2>
+    <div id="redirect">
+      <h2><a href="https://live1.oau.app">备用通道 1 （仅限中国境内）</a></h2>
+      <h2><a href="https://live2.oau.app">备用通道 2 （仅限中国境内）</a></h2>
+    </div>
+    <img id="detect" src="" onload="connected()" onerror="tryConnection()" style="width:0"/>
+  </body>
+</html>
