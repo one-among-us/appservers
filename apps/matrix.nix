@@ -26,6 +26,15 @@ in {
     enable = true;
     extraConfig = ''
       ${domain} {
+        header /calendar/ical/* {
+          Access-Control-Allow-Origin *
+          Access-Control-Allow-Credentials true
+          Access-Control-Allow-Methods *
+          Access-Control-Allow-Headers *
+        }
+        reverse_proxy /calendar/ical/* https://calendar.google.com {
+          header_up Host {http.reverse_proxy.upstream.hostport}
+        }
         reverse_proxy /_matrix/* localhost:8008
         reverse_proxy /_synapse/client/* localhost:8008
         header /.well-known/matrix/* Content-Type application/json
