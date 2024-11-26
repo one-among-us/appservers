@@ -15,6 +15,7 @@ in
           redir * /
           file_server
         }
+        header >last-modified "Tue, 26 Nov 2024 12:45:00 GMT"
       }
 
       oau.edu.kg {
@@ -25,6 +26,7 @@ in
           redir * /
           file_server
         }
+        header >last-modified "Tue, 26 Nov 2024 12:45:00 GMT"
       }
 
       lib.oau.edu.kg {
@@ -35,6 +37,7 @@ in
           redir * /
           file_server
         }
+        header >last-modified "Tue, 26 Nov 2024 12:45:00 GMT"
       }
     '';
   };
