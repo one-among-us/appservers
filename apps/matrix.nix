@@ -45,6 +45,7 @@ in {
     '';
   };
 
+  nixpkgs.config.permittedInsecurePackages = lib.singleton "olm-3.2.16";
   services.matrix-synapse = {
     enable = true;
     settings = {

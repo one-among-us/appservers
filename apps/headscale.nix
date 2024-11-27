@@ -6,6 +6,7 @@
 
   services.headscale = {
     enable = true;
+    settings.dns.magic_dns = false;
     address = "0.0.0.0";
     port = 40180;
     settings.server_url = "https://hs.oau.app";
