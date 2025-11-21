@@ -2,7 +2,7 @@
 
 ## Update Server
 ```
-nixos-rebuild switch --flake path:.#<hostname> --target-host <hostname> --use-remote-sudo 
+nixos-rebuild switch --flake path:.#<hostname> --target-host <hostname> --sudo 
 ```
 
 ## Declare Your Privilege
