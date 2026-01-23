@@ -22,6 +22,14 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPbKzssJYRhfIGqipJd96agUmLs6SkCcIMzGk0dU3B7b openpgp:0x12F68067"
       ];
     };
+    souiken = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "docker" ];
+      homeMode = "755";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINtK50whci8LUiU/tQXtzVq3NXByq7wNoXX//0GOr9f0 izumi@Pixelbook"
+      ];
+    };
   };
   nix.settings.trusted-users = [ "@wheel" ];
 }
