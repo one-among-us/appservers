@@ -6,6 +6,10 @@
     flake-utils.url = "github:numtide/flake-utils";
     arion.url = "github:hercules-ci/arion";
     arion.inputs.nixpkgs.follows = "nixpkgs";
+    payment-backend = {
+      url = "github:one-among-us/payment-backend";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, flake-utils, arion, ... }:
@@ -18,6 +22,7 @@
                                ./basics.nix
                                { networking.hostName = host; }
                                arion.nixosModules.arion
+                               inputs.payment-backend.nixosModules.default
                              ];
             in nixpkgs.lib.nixosSystem rec {
               inherit system;
@@ -40,6 +45,7 @@
             "mautrix-bridges"
             "reverse"
             "headscale"
+            "payment-backend"
           ];
         }
       ];

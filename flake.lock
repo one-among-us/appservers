@@ -79,11 +79,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1777268161,
-        "narHash": "sha256-bxrdOn8SCOv8tN4JbTF/TXq7kjo9ag4M+C8yzzIRYbE=",
+        "lastModified": 1786599213,
+        "narHash": "sha256-yNJd40f11EzXBjSByCB7IPpeFFAdeoSKKM67dGkfFoU=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "1c3fe55ad329cbcb28471bb30f05c9827f724c76",
+        "rev": "0e251e24a4f24e036a084b6b4b2d2491af4167f4",
         "type": "github"
       },
       "original": {
@@ -93,11 +93,32 @@
         "type": "github"
       }
     },
+    "payment-backend": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786856823,
+        "narHash": "sha256-mEnMX/qhz0n3Q1q0sZq8tqYl1+C/+4eiNyqIqCjXeyc=",
+        "owner": "one-among-us",
+        "repo": "payment-backend",
+        "rev": "96b2ce979261b386168cdb6af30b4ad7d16cc8c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "one-among-us",
+        "repo": "payment-backend",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "arion": "arion",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "payment-backend": "payment-backend"
       }
     },
     "systems": {
