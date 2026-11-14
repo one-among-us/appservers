@@ -38,6 +38,14 @@
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKkpx98ZIWb/NSFYTTaP6SbIiVrz/t71ntRv4aNSUzvd user@emirinne"
       ];
     };
+    lavenderbook = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "docker" ];
+      homeMode = "755";
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIArU33KTrWcj2+yOz0g5onnOmkfNzcbYYumgu+hWT11S lavenderbook-oau-contabo"
+      ];
+    };
   };
   nix.settings.trusted-users = [ "@wheel" ];
 }
